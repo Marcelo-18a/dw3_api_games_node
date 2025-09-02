@@ -11,6 +11,7 @@ class gameService {
       console.log(error);
     }
   }
+
   async Create(title, year, genre, platform, price) {
     try {
       const newGame = new Game({
@@ -22,6 +23,15 @@ class gameService {
       });
       await newGame.save();
     } catch (error) {
+      console.log(error);
+    }
+  }
+  // Deletando registro no banco
+  async Delete(id) {
+    try {
+      await Game.findByIdAndDelete(id);
+      console.log(`Game com a id: ${id} foi deletado com sucesso!`);
+    } catch (error){
       console.log(error);
     }
   }
