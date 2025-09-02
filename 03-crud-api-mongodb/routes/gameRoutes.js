@@ -1,13 +1,19 @@
 import express from "express";
-import getAllgames from "../controllers/gameController.js";
+const gameRoutes = express.Router();
 import gameController from "../controllers/gameController.js";
 
-const gameRoutes = express.Router();
+// A camada de routes será responsável por conter os ENDPOINTS da API
 
+// ENDPOINT para LISTAR
 gameRoutes.get("/games", gameController.getAllgames);
 
-gameRoutes.post("/games", gameController.createGame)
+// ENDPOINT para CADASTRAR
+gameRoutes.post("/games", gameController.createGame);
 
-gameRoutes.delete("/games/:id", gameController.deleteGame)
+// ENDPOINT para DELETAR
+gameRoutes.delete("/games/:id", gameController.deleteGame);
+
+// ENDPOINT para ALTERAR
+gameRoutes.put("/games/:id", gameController.updateGame);
+
 export default gameRoutes;
-

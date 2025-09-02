@@ -1,8 +1,9 @@
 import Game from "../models/Games.js";
 
 // O service será responsável por conter os métodos de manipulação do banco.
+
 class gameService {
-  // buscando os registros do banco
+  // Buscando os registros do banco
   async getAll() {
     try {
       const games = await Game.find();
@@ -11,7 +12,7 @@ class gameService {
       console.log(error);
     }
   }
-
+  // Cadastrando registros no banco
   async Create(title, year, genre, platform, price) {
     try {
       const newGame = new Game({
@@ -26,14 +27,32 @@ class gameService {
       console.log(error);
     }
   }
-  // Deletando registro no banco
+
+  // Deletando registros no banco
   async Delete(id) {
     try {
       await Game.findByIdAndDelete(id);
-      console.log(`Game com a id: ${id} foi deletado com sucesso!`);
-    } catch (error){
+      console.log(`Game com a id: ${id} foi deletado com sucesso.`);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  // Alterando registros no banco
+  async Update(id, title, year, genre, platform, price) {
+    try {
+      await Game.findByIdAndUpdate(id, {
+        title,
+        year,
+        genre,
+        platform,
+        price,
+      });
+      console.log(`Dados do game com id ${id} alterados com sucesso.`);
+    } catch (error) {
       console.log(error);
     }
   }
 }
+
 export default new gameService();
