@@ -4,6 +4,11 @@ import Welcome from "@/components/Welcome";
 import User from "@/components/User";
 import Description from "@/components/Description";
 import Pet from "@/components/Pet";
+import Counter from "@/components/Counter";
+import UserForm from "@/components/UserForm";
+import ComponentePai from "@/components/ComponentePai";
+import Children from "@/components/Children";
+import TaskList from "@/components/TaskList";
 
 export default function Home() {
   return (
@@ -20,7 +25,8 @@ export default function Home() {
         <hr />
         <Welcome />
         <User />
-        <hr /><br />
+        <hr />
+        <br />
         <Description
           city="Pariquera-açu"
           age={18}
@@ -28,6 +34,42 @@ export default function Home() {
         />
         <br />
         <Pet name="Noah" breed="Netherland Dwarf" age={3} />
+        <br />
+        <Counter />
+        <hr />
+        <UserForm />
+        <br />
+        <br />
+        <ComponentePai />
+        <br />
+        <br />
+        <Children>
+          <div>
+            <p>Este é o conteudo da children</p>
+          </div>
+        </Children>
+        <br />
+        <br />
+        <TaskList
+          tasks={[
+            {
+              id: "1",
+              text: "Pagar contas",
+            },
+            {
+              id: "2",
+              text: "fazer compras no mercado",
+            },
+            {
+              id: "3",
+              text: "Laver o carro",
+            },
+            {
+              id: "4",
+              text: "estudar react",
+            },
+          ]}
+        />
       </main>
     </>
   );
